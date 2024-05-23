@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   Overdose_Testimonials
+ * @author    Vladimir Prutian <vladimir.prutian@gmail.com>
+ * @copyright Copyright (c) 2020
+ */
+ -->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">testimonials_form.testimonials_form_data_source</item>
+            <item name="deps" xsi:type="string">testimonials_form.testimonials_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Testimonials</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">testimonials_form</item>
+            <item name="ajaxSave" xsi:type="boolean">true</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <dataSource name="testimonials_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Overdose\Testimonials\Ui\Component\Testimonials\DataProvider</argument>
+            <argument name="name" xsi:type="string">testimonials_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save" />
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="testimonials_details">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Testimonials</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+        </argument>
+        <field name="testimonials_title">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">testimonials</item>
+                    <item name="dataScope" xsi:type="string">testimonials_title</item>
+                </item>
+            </argument>
+        </field>
+        <field name="testimonials_message">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Message</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">testimonials</item>
+                    <item name="dataScope" xsi:type="string">testimonials_message</item>
+                </item>
+            </argument>
+        </field>
+        <field name="testimonials_image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="source" xsi:type="string">testimonials</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">Overdose_Testimonials/ui/form/image/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Overdose_Testimonials/ui/form/image/preview</item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="testimonials/image/uploader"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <button name="submit_testimonials_button">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="buttonClasses" xsi:type="string">save primary</item>
+                    <item name="actions" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="targetName" xsi:type="string">testimonials_form.testimonials_form</item>
+                            <item name="actionName" xsi:type="string">save</item>
+                        </item>
+                    </item>
+                    <item name="component" xsi:type="string">Overdose_Testimonials/js/form/element/submit_button</item>
+                </item>
+            </argument>
+            <settings>
+                <displayAsLink>false</displayAsLink>
+                <title translate="true">Submit Testimonial</title>
+            </settings>
+        </button>
+        <insertListing name="testimonials_listing" >
+            <settings>
+                <dataLinks>
+                    <exports>false</exports>
+                    <imports>true</imports>
+                </dataLinks>
+                <autoRender>true</autoRender>
+                <selectionsProvider>testimonials_listing.testimonials_listing.columns.ids</selectionsProvider>
+                <dataScope>testimonials_listing</dataScope>
+                <ns>testimonials_listing</ns>
+            </settings>
+        </insertListing>
+    </fieldset>
+</form>

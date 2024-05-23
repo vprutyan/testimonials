@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   Overdose_Testimonials
+ * @author    Vladimir Prutian <vladimir.prutian@gmail.com>
+ * @copyright Copyright (c) 2020
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Overdose_Testimonials" />
+</config>

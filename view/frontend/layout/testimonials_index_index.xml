@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   Overdose_Testimonials
+ * @author    Vladimir Prutian <vladimir.prutian@gmail.com>
+ * @copyright Copyright (c) 2020
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <head>
+        <title>Customer Testimonials</title>
+        <css src="Overdose_Testimonials::css/styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceBlock name="navigation.sections" remove="true"/>
+        <referenceContainer name="content">
+            <uiComponent name="testimonials_form"/>
+        </referenceContainer>
+    </body>
+</page>
